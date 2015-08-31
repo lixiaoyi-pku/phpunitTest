@@ -5,10 +5,14 @@ require dirname(__DIR__) ."/src/Money.php";
 
 class MoneyTest extends PHPUnit_Framework_TestCase{
 
-	public function testCanBeNegated(){
-		$a = new Money(1);
+	private $a, $b;
+	function setUp(){
+		$this->a = new Money(1);
+	}
 
-		$b = $a->negate();
+	public function testCanBeNegated(){
+
+		$b = $this->a->negate();
 
 		$this->assertEquals(-1,$b->getAmount());
 	}
